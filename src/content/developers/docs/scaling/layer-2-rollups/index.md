@@ -39,7 +39,7 @@ Rollups require "operators" to stake a bond in the rollup contract. This incenti
 
 There are two types of rollups with different security models:
 
-- **Optimistic rollups**: assumes transactions are valid by default and only runs computation, via a [**fraud proof**](/glossary/#fraud-proof), in the event of a challenge
+- **Optimistic rollups**: assumes transactions are valid by default and only runs computation when one party conflicts with a certain transaction via a [**fraud proof**](/glossary/#fraud-proof)
 - **Zero-knowledge rollups**: runs computation off-chain and submits a [**validity proof**](/glossary/#validity-proof) to the chain
 
 ### Optimistic rollups {#optimistic-rollups}
@@ -48,7 +48,7 @@ Optimistic rollups sit in parallel to the main Ethereum chain on layer 2. They c
 
 With Optimistic rollups, transactions are written to the main Ethereum chain as `calldata`, optimising them further by reducing the gas cost.
 
-As computation is the slow, expensive part of using Ethereum, Optimistic rollups can offer up to 10-100x improvements in scalability dependent on the transaction. This number will increase even more with the introduction of [shard chains](/upgrades/shard-chains) as more data will be available if a transaction is disputed.
+As computation is the slow, expensive part of using Ethereum, Optimistic rollups can offer up to 10-100x improvements in scalability dependent on the transaction. This number will increase even more with the introduction of [shard chains](/upgrades/shard-chains) as more data will be available if a transaction is disputed. Most of the Optimistic Rollups try to put the computation off chain. 
 
 #### Disputing transactions {#disputing-transactions}
 
@@ -87,7 +87,7 @@ Multiple implementations of Optimistic rollups exist that you can integrate into
 
 ### Zero-knowledge rollups {#zk-rollups}
 
-**Zero-knowledge rollups (ZK-rollups)** bundle (or "roll-up") hundreds of transfers off-chain and generate a cryptographic proof, known as a SNARK (succinct non-interactive argument of knowledge). This is known as a validity proof and is posted on layer 1.
+**Zero-knowledge rollups (ZK-rollups)** bundle (or "roll-up") hundreds of transfers off-chain and generate a cryptographic proof, known as a SNARK (succinct non-interactive argument of knowledge). This is known as a validity proof and is posted on layer 1. As the name suggests they are based on a cryptography concept named Zero-knowledge proofs in which one party proves to another about the validity of a statement without sharing any data on the statement itself.
 
 The ZK-rollup smart contract maintains the state of all transfers on layer 2, and this state can only be updated with a validity proof. This means that ZK-rollups only need the validity proof instead of all transaction data. With a ZK-rollup, validating a block is quicker and cheaper because less data is included.
 
@@ -118,7 +118,7 @@ Multiple implementations of ZK-rollups exist that you can integrate into your da
 - [Matter Labs zkSync](https://zksync.io/)
 - [Aztec 2.0](https://aztec.network/)
 - [Polygon Hermez](https://hermez.io/)
-- [zkTube](https://zktube.io/)
+- [zkTube](https://zktube.io/) - [white paper](https://github.com/zkTube-Labs/zkTube-docs/tree/main/docs/Whitepaper) 
 
 ## Hybrid solutions {#hybrid-solutions}
 
@@ -140,6 +140,7 @@ Hybrid solutions exist that combine the best parts of multiple layer 2 technolog
 
 - [What Are Zero-Knowledge Rollups?](https://coinmarketcap.com/alexandria/glossary/zero-knowledge-rollups)
 - [EthHub on zk-rollups](https://docs.ethhub.io/ethereum-roadmap/layer-2-scaling/zk-rollups/)
+- [Zero-Knowledge proofs](https://en.wikipedia.org/wiki/Zero-knowledge_proof)
 
 **Optimistic rollups**
 
